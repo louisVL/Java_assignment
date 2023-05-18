@@ -2,10 +2,10 @@ package employees;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberReader implements Reader<Member> {
+public class EmployeeReader implements Reader<Member> {
     private final String filePath;
 
-    public MemberReader(String filePath) {
+    public EmployeeReader(String filePath) {
         this.filePath = filePath;
     }
 
