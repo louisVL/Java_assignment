@@ -1,10 +1,6 @@
 package assignment;
 
 public enum FileType {
-	
-		
-		fasta,
-		txt
-	}
 
-
+	fasta, txt
+}

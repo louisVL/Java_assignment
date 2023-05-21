@@ -19,6 +19,10 @@ public class Main {
 	System.out.println(gen1);
 	
 	
+	
+	
+	
+	
 }
 
 }
