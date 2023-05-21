@@ -1,5 +1,14 @@
 package genomes;
+import java.util.List;
 
-public class GenomeReader {
+import assignment.Reader;
+
+public class GenomeReader implements Reader {
+
+	@Override
+	public <T> List<T> readFileToList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

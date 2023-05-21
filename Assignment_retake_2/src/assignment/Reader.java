@@ -1,6 +1,11 @@
 package assignment;
 
+import java.util.List;
 
-public class Reader {
+public interface Reader {
 
+   <T> List<T> readFileToList();
+
+	
+	
 }
