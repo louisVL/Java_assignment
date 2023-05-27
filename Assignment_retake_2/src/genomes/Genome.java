@@ -9,7 +9,7 @@ public class Genome {
 
 	private String genStructure;
 	private String genName;
-	private ArrayList<Genome> genomeList;
+	//private ArrayList<Genome> genomeList;
 
 	public Genome(String genName, String genStructure) {
 
@@ -37,9 +37,9 @@ public class Genome {
 		return getGenomeList();
 	}
 
-	public void setGenomeList(ArrayList<Genome> genomeList) {
-		this.genomeList = genomeList;
-	}
+//	public void setGenomeList(ArrayList<Genome> genomeList) {
+//		this.genomeList = genomeList;
+//	}
 
 	public static void printGenomeList(ArrayList<Genome> genomeList) {
 		for (int i = 0; i < genomeList.size(); i++) {

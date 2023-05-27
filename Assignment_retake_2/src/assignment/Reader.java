@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Reader {
 
-   <T> List<T> readFileToList();
+	   <T> List<T> readFileToList();
 
 	
 	

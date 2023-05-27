@@ -15,6 +15,10 @@ import java.util.Scanner;
 
 public class EmployeeReader implements Reader {
 	private String filePath;
+	private String jobTitle;
+	private String firstName;
+	private String lastName;
+	private int yearsOfExperience;
 	private static ArrayList<Employee> employeeList = new ArrayList<Employee>();
 	private String packageName = EmployeeRepository.class.getPackage().getName(); // to get the name of the current
 	// package
@@ -23,17 +27,14 @@ public class EmployeeReader implements Reader {
 		this.filePath = filePath;
 	}
 
-	@Override
-	public List<Employee> readFileToList() {
-		return new ArrayList<>();
-	}
 
-	public ArrayList<Employee> readFileToListOfEmployees() throws FileNotFoundException {
+	@Override
+	public ArrayList<Employee> readFileToList() {
 
 		try {
 			Path currentRelativePath = Paths.get("");
 			String s = currentRelativePath.toAbsolutePath().toString();
-			String fileLocation2 = s + File.separator + "src" + File.separator + packageName + File.separator
+			String fileLocation2 = s + File.separator + "src" + File.separator 
 					+ "team";
 
 			File file2 = new File(fileLocation2 + "." + FileType.txt);
@@ -47,10 +48,10 @@ public class EmployeeReader implements Reader {
 				jobTitle = content[0];
 				firstName = content[1];
 				lastName = content[2];
-				yearsExperience = Integer.parseInt(content[3]);
+				yearsOfExperience = Integer.parseInt(content[3]);
 				// repositoryName = content[1] + content[2];
 
-				Employee emp = new Employee(jobTitle.toLowerCase(), firstName, lastName, yearsExperience);
+				Employee emp = new Employee(jobTitle.toLowerCase(), firstName, lastName, yearsOfExperience);
 				if (!employeeList.contains(emp))
 					employeeList.add(emp);
 
@@ -69,7 +70,69 @@ public class EmployeeReader implements Reader {
 		} catch (Exception e) {
 			System.out.println("An unexpected error occurred: " + e.getMessage());
 		}
+		System.out.println("\"output from employeeReader\" " + employeeList.toString());
+
+		return employeeList;
+	}
+	
+	
+	
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getYearsOfExperience() {
+		return yearsOfExperience;
+	}
+
+	public void setYearsOfExperience(int yearsOfExperience) {
+		this.yearsOfExperience = yearsOfExperience;
+	}
+
+	public static ArrayList<Employee> getEmployeeList() {
 		return employeeList;
 	}
 
+	public static void setEmployeeList(ArrayList<Employee> employeeList) {
+		EmployeeReader.employeeList = employeeList;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
+
+	
 }
