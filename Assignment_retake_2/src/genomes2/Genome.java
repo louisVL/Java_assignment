@@ -1,4 +1,4 @@
-package genomes;
+package genomes2;
 
 import java.io.BufferedWriter;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ public class Genome {
 
 	private String genStructure;
 	private String genName;
-	//private ArrayList<Genome> genomeList;
 
 	public Genome(String genName, String genStructure) {
 
@@ -33,23 +32,9 @@ public class Genome {
 		this.genName = genName;
 	}
 
-	public ArrayList<Genome> getGenomeList() {
-		return getGenomeList();
-	}
-
-//	public void setGenomeList(ArrayList<Genome> genomeList) {
-//		this.genomeList = genomeList;
-//	}
-
-	public static void printGenomeList(ArrayList<Genome> genomeList) {
-		for (int i = 0; i < genomeList.size(); i++) {
-			System.out.println(genomeList.get(i));
-		}
-
-	}
-
+	@Override
 	public String toString() {
-		return String.format("%s", this.getGenName() + " has the following structure " + this.getGenStructure());
+	    return String.format("%s has the following structure: %s", genName, genStructure);
 	}
 
 }

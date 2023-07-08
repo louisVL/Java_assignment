@@ -7,12 +7,12 @@ public class Employee {
 	private String lastName;
 	private Integer yearsOfExperience;
 
-	public Employee(String jobTitle, String firstName, String lastName, Integer y_exp) {
+	public Employee(String jobTitle, String firstName, String lastName, Integer yearsOfExperience) {
 
 		this.jobTitle = jobTitle;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.yearsOfExperience = y_exp;
+		this.yearsOfExperience = yearsOfExperience;
 
 	}
 
@@ -52,7 +52,7 @@ public class Employee {
 		String jobTitle = this.getJobTitle();
 		return jobTitle == " TeamLead ";
 	}
-
+	@Override
 	public String toString() {
 		return String.format("%s", this.getFirstName() + " " + this.getLastName() + " has "
 				+ this.getYearsOfExperience() + " years of experience as " + this.getJobTitle());
