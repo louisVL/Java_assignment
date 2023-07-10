@@ -11,15 +11,13 @@ public class GenomeRepository {
 
 	private ArrayList<Genome> genomeList;
 	private String referenceSequence;
-    private List<String> bioinformaticians;
-    private ArrayList<String> snpAlignments;
-
-
+	private List<String> bioinformaticians;
+	private ArrayList<String> snpAlignments;
 
 	public GenomeRepository(ArrayList<Genome> genomeList) {
 		this.genomeList = genomeList;
-        this.bioinformaticians = new ArrayList<>();
-        this.snpAlignments = new ArrayList<>();
+		this.bioinformaticians = new ArrayList<>();
+		this.snpAlignments = new ArrayList<>();
 
 	}
 
@@ -99,26 +97,44 @@ public class GenomeRepository {
 
 		return sb.toString();
 	}
-	
-	
-	  public List<String> searchGenomesForSequence(String sequence) {
-	        List<String> matchingGenomes = new ArrayList<>();
 
-	        for (int i = 0; i < genomeList.size(); i++) {
-	            Genome genome = genomeList.get(i);
-	            String genomeSequence = genome.getGenStructure();
+	public List<String> searchGenomesForSequence(String sequence) {
+		List<String> matchingGenomes = new ArrayList<>();
 
-	            if (genomeSequence.contains(sequence)) {
-	                matchingGenomes.add(genome.getGenName());  // Assuming Genome class has a 'getName()' method
-	            }
-	        }
+		for (int i = 0; i < genomeList.size(); i++) {
+			Genome genome = genomeList.get(i);
+			String genomeSequence = genome.getGenStructure();
 
-	        return matchingGenomes;
-	    }
-	
+			if (genomeSequence.contains(sequence)) {
+				matchingGenomes.add(genome.getGenName());
+			}
+		}
 
-	public void addGenomeAtIndex(Genome genome, int index) {
-		genomeList.add(index, genome);
+		return matchingGenomes;
+	}
+
+	public void replaceSequenceInGenome(int index, String oldSequence, String newSequence) {
+		if (index >= 0 && index < genomeList.size()) {
+			Genome genome = genomeList.get(index);
+			String genomeSequence = genome.getGenStructure();
+
+			if (genomeSequence.contains(oldSequence)) {
+				String replacedSequence = genomeSequence.replace(oldSequence, newSequence);
+				genome.setGenStructure(replacedSequence); // Assuming Genome class has a 'setGenStructure()' method
+				genomeList.set(index, genome); // Update the genome in the genomeList
+			}
+		}
+	}
+
+	public void addGenomeToRepository(String name, String sequence) {
+		Genome genome = new Genome(name, sequence);
+		genomeList.add(genome);
+	}
+
+	public void removeGenomeFromRepository(int index) {
+		if (index >= 0 && index < genomeList.size()) {
+			genomeList.remove(index);
+		}
 	}
 
 	public ArrayList<Genome> getGenomeList() {

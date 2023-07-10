@@ -21,11 +21,7 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-//		Employee emp1 = new Employee("Frank", "De Tank", "Bioinformaticion", 9);
-//		System.out.println(emp1);
-//
-//		Genome gen1 = new Genome("GenL", "AAAGAGAGAAAATTTGAAAA");
-//		System.out.println(gen1);
+
 
 		ArrayList<Employee> employeeList = new EmployeeReader("team").readFileToList();
 		ArrayList<Genome> genomeList = new GenomeReader("hiv").readFileToList();
@@ -59,40 +55,43 @@ public class Main {
 		EmployeeRepository employeeRepository = new EmployeeRepository(employeeList);
 		bioinformaticians = employeeRepository.getBioinformaticians();
 		System.out.println(bioinformaticians);
+		
+		GenomeRepository genomeRepo = new GenomeRepository(genomeList);
+		genomeRepo.getSpecificGenome(1);
+		System.out.println("specific genome at index 0: " + genomeRepo.getSpecificGenome(0));
+		
+		
 
-		//ArrayList<String> bioinformaticians = employeeRepository.getBioinformaticians();
-		// ArrayList<String> technicalSupport =
-		// employeeRepository.getTechnicalSupport();
-		// ArrayList<String> teamLeads = employeeRepository.getTeamlead();
-		//
-		GenomeRepository GenomeRepo = new GenomeRepository(genomeList);
-		GenomeRepo.getSpecificGenome(1);
-		System.out.println("specific genome at index 0: " + GenomeRepo.getSpecificGenome(0));
-		
-		
-		String snpAlignment2 = GenomeRepo.displaySNPAlignment();
-	// Uncomment to get the full SNP Alignment	
-	//	System.out.println("SNP Alignment:\n" + snpAlignment2);
-		
-		GenomeRepository repository = new GenomeRepository(genomeList);
-		String alignment_at_index = repository.calculateSNPAlignmentForIndex(2);
+		String alignment_at_index = genomeRepo.calculateSNPAlignmentForIndex(2);
 		System.out.println(alignment_at_index);
 		
-		List<String> matchingGenomes = repository.searchGenomesForSequence("AA");
+		List<String> matchingGenomes = genomeRepo.searchGenomesForSequence("AA");
 		System.out.println("Matching Genomes" + matchingGenomes);
+		
+		genomeRepo.replaceSequenceInGenome(0, "TTTCCTGC", "TTTGGGAA");
 
+		// Access the updated genome
+		Genome updatedGenome = genomeRepo.getSpecificGenome(0);
+		String updatedSequence = updatedGenome.getGenStructure();
+		System.out.println(updatedSequence);
 		
 		
-        // Call the calculateSNPAlignment() method
-	//	GenomeRepository2 GenomeRepo2 = new GenomeRepository2(genomeMap);
-    //    String snpAlignment = GenomeRepo2.calculateSNPAlignment();
-    //    System.out.println("SNP Alignment:");
-    //    System.out.println(snpAlignment);
-		//
-		// System.out.println(GenomeRepo.toString());
+		genomeRepo.addGenomeToRepository("GenomeC", "TACGTAGC");
 
-		// AlignmentRepository alRepo = new AlignmentRepository(GenomeRepo, null);
+		// Access the updated genomeList
+		ArrayList<Genome> updatedGenomeList = genomeRepo.getGenomeList();
+		for (Genome genome : updatedGenomeList) {
+		    System.out.println(genome.getGenName() + ": " + genome.getGenStructure());
+		    
+		}
+		System.out.println("size after adding:  " + updatedGenomeList.size());
+		
+	//	repository.removeGenomeFromRepository(0);
+	//	for (Genome genome : updatedGenomeList) {
+	//	    System.out.println(genome.getGenStructure() + ": " + genome.getGenStructure());
+		}
+//		System.out.println("size after removing: " + updatedGenomeList.size());
 
-	}
 
+	
 }
