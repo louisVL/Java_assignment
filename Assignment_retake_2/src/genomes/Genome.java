@@ -1,4 +1,4 @@
-package genomes2;
+package genomes;
 
 import java.io.BufferedWriter;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class Genome {
 
 	@Override
 	public String toString() {
-	    return String.format("%s has the following structure: %s", genName, genStructure);
+		return String.format("%s has the following structure: %s", genName, genStructure);
 	}
 
 }

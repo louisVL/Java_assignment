@@ -6,12 +6,14 @@ import java.util.NoSuchElementException;
 
 import employees.Employee;
 import employees.EmployeeReader;
+
 public class EmployeeRepository {
 
 	private ArrayList<Employee> employeeList;
 	private ArrayList<Employee> bioInformaticianList;
-	
-	//Eventueel een lijst maken voor bioinformatician, technical support en TeamLead?
+
+	// Eventueel een lijst maken voor bioinformatician, technical support en
+	// TeamLead?
 
 	public EmployeeRepository(ArrayList<Employee> employeeList) {
 		this.employeeList = employeeList; // Add this line to assign the parameter to the instance variable
@@ -47,7 +49,7 @@ public class EmployeeRepository {
 		System.out.println("The bioinformaticians are " + uniqueTechnicalSupportEmployees);
 		return uniqueTechnicalSupportEmployees;
 	}
-	
+
 	public ArrayList<String> getTeamlead() {
 		ArrayList<String> uniqueTeamlead = new ArrayList<>();
 		try {
@@ -62,8 +64,6 @@ public class EmployeeRepository {
 		System.out.println("The teamlead(s) are " + uniqueTeamlead);
 		return uniqueTeamlead;
 	}
-	
-	
 
 	public ArrayList<Employee> getEmployeeList() {
 		return employeeList;
@@ -80,7 +80,5 @@ public class EmployeeRepository {
 	public void setBioInformaticianList(ArrayList<Employee> bioInformaticianList) {
 		this.bioInformaticianList = bioInformaticianList;
 	}
-	
-	
-	
+
 }

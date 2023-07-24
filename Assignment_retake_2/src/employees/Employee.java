@@ -52,6 +52,7 @@ public class Employee {
 		String jobTitle = this.getJobTitle();
 		return jobTitle == " TeamLead ";
 	}
+
 	@Override
 	public String toString() {
 		return String.format("%s", this.getFirstName() + " " + this.getLastName() + " has "

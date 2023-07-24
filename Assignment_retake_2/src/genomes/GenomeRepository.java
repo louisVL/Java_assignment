@@ -1,11 +1,11 @@
-package genomes2;
+package genomes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import genomes2.Genome;
-import genomes2.GenomeReader;
-import genomes2.GenomeRepository;
+import genomes.Genome;
+import genomes.GenomeReader;
+import genomes.GenomeRepository;
 
 public class GenomeRepository {
 
